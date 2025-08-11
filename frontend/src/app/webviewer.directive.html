@@ -127,6 +127,7 @@ function fillAllPanesWithFirstSeries(vm, wvStudyManager, wvPaneManager, wvViewer
         wv-closed="vm.isAsideClosed" class="wvPrintExclude">
         <wv-layout-left1>
             <div>
+
                 <div style="display:inline" bs-tooltip bs-enabled="!vm.window.USER_IS_TOUCHING"
                     data-title="{{ 'CUSTOM_TOOLS.HOMEPAGE' | translate}}" placement="right"><a
                         href="https://misimagenes.online" target="_blank" alt="Mis Imagenes Online Homepage"><img
@@ -413,6 +414,9 @@ function fillAllPanesWithFirstSeries(vm, wvStudyManager, wvPaneManager, wvViewer
                     wv-magnifying-glass-viewport-tool="!vm.readonly && !vm.mobileInteraction &&{ enabled:vm.tools.magnify.enabled, magnificationLevel:vm.tools.magnify.magnificationLevel, magnifyingGlassSize:vm.tools.magnify.magnifyingGlassSize}"
                     wv-arrow-annotate-viewport-tool="!vm.readonly && !vm.mobileInteraction && vm.tools.arrowAnnotate"
                     wv-orientation-marker-viewport-tool>
+                    <!-- Add the new button for Update Window/Level here -->
+                    <update-ww-wl-button ng-if="vm.tools.updateWWWL"></update-ww-wl-button>
+                    
                     <wv-overlay ng-if="vm.tools.overlay" wv-study-id="$pane.series.studyId"
                         wv-tags="$image.instanceInfos.TagsSubset" wv-viewport="$pane.csViewport" wv-image="$image">
                     </wv-overlay>
@@ -424,7 +428,8 @@ function fillAllPanesWithFirstSeries(vm, wvStudyManager, wvPaneManager, wvViewer
                 </wv-viewport>
                 <wv-pane-overlay ng-if=" !$pane.videoId && !$pane.seriesId && !$pane.reportId "></wv-pane-overlay>
             </wv-pane-policy>
-        </wv-splitpane><button class="closePrintButton" ng-click="vm.cancelPrintMode()"><span
+        </wv-splitpane>
+        <button class="closePrintButton" ng-click="vm.cancelPrintMode()"><span
                 class="fa fa-times"></span></button>
     </wv-layout-main>
 </wv-layout>

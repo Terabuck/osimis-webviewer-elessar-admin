@@ -342,6 +342,7 @@
                     {type: "button", tool: "pan"},
                     {type: "button", tool: "windowing"},
                     {type: "button", tool: "magnify"},
+                    {type: "button", tool: "updateWWWL"},
                     {type: "button", tool: "lengthMeasure"},
                     {type: "button", tool: "ellipticalRoi"},
                     {type: "button", tool: "layout"},
@@ -401,6 +402,8 @@
             vm.combinedToolEnabled = typeof vm.combinedToolEnabled !== 'undefined' ? vm.combinedToolEnabled : false;
             vm.showInfoPopupButtonEnabled = typeof vm.showInfoPopupButtonEnabled !== 'undefined' ? vm.showInfoPopupButtonEnabled : false;
             vm.studyIslandsDisplayMode = vm.wvViewerController.getStudyIslandDisplayMode(__webViewerConfig.defaultStudyIslandsDisplayMode || "grid");
+            vm.tools.updateWWWL = typeof vm.tools.updateWWWL !== 'undefined' ? vm.tools.updateWWWL : false;
+            
 
             if (!__webViewerConfig.toggleOverlayIconsButtonEnabled) {
                 vm.wvViewerController.setOverlayIconsVisible(__webViewerConfig.displayOverlayIcons);
@@ -545,6 +548,10 @@
                 }
                 if (selectedPane.csViewport) {
                     switch (action) {
+                // Call the function for updating window/level
+                case 'updateWWWL':
+                    UpdateWWWLService.updateWWWLTags(vm);
+                    break;
                 case 'invert':
                     selectedPane.invertColor();
                     break;
