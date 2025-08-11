@@ -1,0 +1,32 @@
+.wv-timeline {
+    position: relative;
+    height: 2em;
+    &.reduced {
+        height: 6px;
+        .wv-timeline-loading-bar-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.wv-timeline-controls-wrapper {
+
+    position: absolute;
+    left: 6px;
+    bottom: 5px;
+    width: 22rem;
+    height: 110%;
+    color: $primary;
+}
+.wv-timeline-loading-bar-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 23rem);
+    height: 3.4rem;
+    svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
