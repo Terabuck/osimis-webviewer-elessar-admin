@@ -1,4 +1,37 @@
-<!-- frontend/src/app/toolbox/update-ww-wl-button.popover.html -->
+<!-- frontend/src/app/toolbox/update-ww-wl-button.popover.html 
 <button class="btn btn-primary" ng-click="updateWWWL()">
         <i class="fa fa-search-location"></i> Update Window/Level
     </button>
+-->
+
+    <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-4 control-label" for="ww">Window Width</label>
+              <div class="col-sm-8">
+                <input type="number" 
+                       class="form-control" 
+                       id="ww" 
+                       ng-model="$ctrl.ww" 
+                       placeholder="Enter WW">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label" for="wl">Window Level</label>
+              <div class="col-sm-8">
+                <input type="number" 
+                       class="form-control" 
+                       id="wl" 
+                       ng-model="$ctrl.wl" 
+                       placeholder="Enter WL">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <button type="button" 
+                        class="btn btn-primary" 
+                        ng-click="$ctrl.update()">
+                  Update
+                </button>
+              </div>
+            </div>
+          </form>
